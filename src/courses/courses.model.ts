@@ -1,6 +1,7 @@
 import { DataTypes } from 'sequelize';
 import { Column, HasMany, Model, Table } from 'sequelize-typescript';
 import { Group } from '../groups/groups.model';
+import { Plan } from '../plans/plans.model';
 
 @Table({ tableName: 'courses' })
 export class Course extends Model<Course> {
@@ -11,4 +12,7 @@ export class Course extends Model<Course> {
 
   @HasMany(() => Group)
   groups: Group[];
+
+  @HasMany(() => Plan)
+  plans: Plan[];
 }

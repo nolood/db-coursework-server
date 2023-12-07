@@ -1,14 +1,13 @@
 import {
   BelongsTo,
-  BelongsToMany,
   Column,
   ForeignKey,
   HasMany,
+  HasOne,
   Model,
   Table,
 } from 'sequelize-typescript';
 import { DataTypes } from 'sequelize';
-import { StudentsGroups } from './students-groups.model';
 import { Group } from '../groups/groups.model';
 import { Exam } from '../exams/exams.model';
 import { Gender } from '../genders/genders.model';
@@ -34,8 +33,12 @@ export class Student extends Model<Student> {
   @Column({ type: DataTypes.INTEGER })
   age: number;
 
-  @BelongsToMany(() => Group, () => StudentsGroups)
-  groups: Group[];
+  @ForeignKey(() => Group)
+  @Column({ type: DataTypes.INTEGER })
+  group_id: number;
+
+  @BelongsTo(() => Group)
+  group: Group;
 
   @HasMany(() => Exam)
   exams: Exam[];

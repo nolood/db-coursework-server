@@ -9,7 +9,6 @@ import { Student } from './students/students.model';
 import { Faculty } from './faculties/faculties.model';
 import { GroupsModule } from './groups/groups.module';
 import { Group } from './groups/groups.model';
-import { StudentsGroups } from './students/students-groups.model';
 import { PlansModule } from './plans/plans.module';
 import { Plan } from './plans/plans.model';
 import { SubjectsModule } from './subjects/subjects.module';
@@ -26,10 +25,18 @@ import { TeachersDepartments } from './teachers/TeachersDepartments.model';
 import { CoursesModule } from './courses/courses.module';
 import { Course } from './courses/courses.model';
 import { ClassTypesModule } from './class-types/class-types.module';
-import { SubjectsTeachers } from './subjects/SubjectsTeachers.model';
+import { SubjectsTeachers } from './subjects/subjects-teachers.model';
 import { GradeModule } from './grade/grade.module';
 import { GendersModule } from './genders/genders.module';
 import { Gender } from './genders/genders.model';
+import { ExamTypesModule } from './exam-types/exam-types.module';
+import { ExamType } from './exam-types/exam-types.model';
+import { CoursesPlans } from './courses/courses-plans.model';
+import { SemesterModule } from './semester/semester.module';
+import { Semester } from './semester/semester.model';
+import { ClassType } from './class-types/class-type.mode';
+import { StudyTaskModule } from './study-task/study-task.module';
+import { StudyTask } from './study-task/study-task.model';
 
 @Module({
   imports: [
@@ -48,7 +55,6 @@ import { Gender } from './genders/genders.model';
         Student,
         Faculty,
         Group,
-        StudentsGroups,
         Plan,
         Subject,
         Exam,
@@ -59,6 +65,11 @@ import { Gender } from './genders/genders.model';
         Course,
         SubjectsTeachers,
         Gender,
+        ExamType,
+        CoursesPlans,
+        Semester,
+        ClassType,
+        StudyTask,
       ],
       autoLoadModels: true,
     }),
@@ -76,6 +87,9 @@ import { Gender } from './genders/genders.model';
     ClassTypesModule,
     GradeModule,
     GendersModule,
+    ExamTypesModule,
+    SemesterModule,
+    StudyTaskModule,
   ],
   controllers: [],
   providers: [],

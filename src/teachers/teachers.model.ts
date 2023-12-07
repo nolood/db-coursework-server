@@ -14,7 +14,7 @@ import { AppointmentsTeachers } from '../appointment/AppointmentsTeachers.model'
 import { Department } from '../departaments/departaments.model';
 import { TeachersDepartments } from './TeachersDepartments.model';
 import { Subject } from '../subjects/subjects.model';
-import { SubjectsTeachers } from '../subjects/SubjectsTeachers.model';
+import { SubjectsTeachers } from '../subjects/subjects-teachers.model';
 import { Gender } from '../genders/genders.model';
 
 @Table({ tableName: 'teachers' })

@@ -1,17 +1,17 @@
 import {
   BelongsTo,
-  BelongsToMany,
   Column,
   ForeignKey,
+  HasMany,
   Model,
   Table,
 } from 'sequelize-typescript';
 import { DataTypes } from 'sequelize';
 import { Faculty } from '../faculties/faculties.model';
-import { StudentsGroups } from '../students/students-groups.model';
 import { Student } from '../students/students.model';
 import { Plan } from '../plans/plans.model';
 import { Course } from '../courses/courses.model';
+import { StudyTask } from '../study-task/study-task.model';
 
 @Table({ tableName: 'groups' })
 export class Group extends Model<Group> {
@@ -27,15 +27,15 @@ export class Group extends Model<Group> {
   @BelongsTo(() => Faculty)
   faculty: Faculty;
 
-  @BelongsToMany(() => Student, () => StudentsGroups)
+  @HasMany(() => Student)
   students: Student[];
 
   @ForeignKey(() => Plan)
   @Column({ type: DataTypes.INTEGER })
   plan_id: number;
 
-  @BelongsTo(() => Plan)
-  plan: Plan;
+  @HasMany(() => Plan)
+  plan: Plan[];
 
   @ForeignKey(() => Course)
   @Column({ type: DataTypes.INTEGER })
@@ -43,4 +43,7 @@ export class Group extends Model<Group> {
 
   @BelongsTo(() => Course)
   course: Course;
+
+  @HasMany(() => StudyTask)
+  studyTasks: StudyTask[];
 }
